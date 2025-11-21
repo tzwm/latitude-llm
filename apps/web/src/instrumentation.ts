@@ -3,7 +3,7 @@ export async function register() {
     const { tracer } = await import('dd-trace')
     const { envClient } = await import('./envClient')
 
-    console.log('instrumentation...');
+    console.log('log: instrumentation...');
 
     tracer.init({
       service: 'latitude-llm-web',
