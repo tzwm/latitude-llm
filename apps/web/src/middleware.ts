@@ -6,6 +6,8 @@ import {
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function middleware(request: NextRequest) {
+  console.log('DEBUG: Middleware called for path:', request.nextUrl.pathname)
+  console.time('middleware_processing')
   // Set current url in headers so downstream components can
   // use it (yes, this is the only way to do it, Next is...)
   const currentUrl = request.nextUrl.pathname + request.nextUrl.search
@@ -26,6 +28,7 @@ export async function middleware(request: NextRequest) {
     )
   }
 
+  console.timeEnd('middleware_processing')
   return NextResponse.next({ request: { headers } })
 }
 

@@ -19,6 +19,7 @@ const POOL_CONFIG: PoolConfig = {
   max: 10, // Maximum number of connections in the pool (default)
   min: 0, // Minimum number of connections in the pool (default)
   idleTimeoutMillis: 30000, // 30 seconds - Idle connection timeout (pool)
+  connectionTimeoutMillis: 5000, // 5 seconds - Connection establishment timeout
   idle_in_transaction_session_timeout: 30000, // 30 seconds - Idle connection timeout (database)
   statement_timeout: 30000, // 30 seconds - Running statement timeout (database)
 }
@@ -38,6 +39,7 @@ const LRO_POOL_CONFIG: PoolConfig = {
   max: 3, // Don't saturate connections
   min: 0, // Don't reserve connections
   idleTimeoutMillis: 1, // Kick idle connections as fast as possible
+  connectionTimeoutMillis: 5000, // 5 seconds - Connection establishment timeout
   statement_timeout: 300000, // 5 minutes - Increase x5 the statement timeout
 }
 
